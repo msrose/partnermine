@@ -1,0 +1,4 @@
+%h1 Courses
+%ul
+  - @courses.each do |course|
+    %li= link_to course.code, course_path(course)
