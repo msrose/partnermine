@@ -1,1 +1,6 @@
 %h1= @course.code
+%h2 Sections
+%ul
+- @sections.each do |section|
+  %li= link_to section.number, course_section_path(@course, section)
+= link_to "Add a section", new_course_section_path(@course)

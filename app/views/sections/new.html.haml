@@ -1,0 +1,5 @@
+%h1= "Create section in #{@course.code}"
+= form_for [@course, @section] do |f|
+  = f.label :number
+  = f.text_field :number
+  = f.submit 'Create Section'
