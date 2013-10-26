@@ -1,11 +1,5 @@
 Partnermine::Application.routes.draw do
-  get "courses/new"
-
-  get "courses/index"
-
-  get "courses/show"
-
-  get "sessions/new"
+  root :to => 'dashboard#home'
 
   resources :students, :only => [:new, :create, :show]
   get '/signup' => 'students#new'
