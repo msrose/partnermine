@@ -7,6 +7,15 @@
     = csrf_meta_tags
   %body
     .container
+      .navbar
+        .navbar-inner
+          %ul{:class=>"nav"}
+            %li{:class=>"homelink"}
+              %a= link_to 'Home', "signin"
+            %li
+              %a= link_to 'Courses',"#"
+            %li{:class=>"signinlink"}
+              %a= link_to 'Sign In', "signin"
       .content
         - if flash.any?
           .row

@@ -14,3 +14,13 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require_tree .
+$(document).ready(function(){
+	if( $('.signin').length ){
+		$(".signinlink").addClass("active");
+	}
+	$(".nav").children().click(function(){
+		$(".active").removeClass("active");
+		//$(this).button('reset')
+		$(this).addClass("active");
+	});
+});

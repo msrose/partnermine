@@ -1,8 +1,13 @@
-%h1 Sign In
-= form_for :session, :url => sessions_url do |f|
-  = f.label :email
-  = f.text_field :email
-  = f.label :password
-  = f.password_field :password
-  %br
-  = f.submit 'Sign In'
+.signin
+	%h1 Sign In
+	%br
+	= form_for :sessions, :url => sessions_url do |f|
+		= f.label :email, "UW Email Address"
+		= f.text_field :email
+		= f.label :password
+		= f.password_field :password
+		%br
+		= f.submit 'Sign In',:class=>"btn btn-primary"
+	Don't have an account? 
+	%a= link_to 'Sign Up',"signup"
+	Now!
