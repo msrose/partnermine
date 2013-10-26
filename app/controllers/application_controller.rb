@@ -6,9 +6,9 @@ class ApplicationController < ActionController::Base
   protected
 
     def sign_in
-      token = User.new_remember_token
+      token = Student.new_remember_token
       cookies[:remember_token] = token
-      user.update_attribute(:remember_token, User.encrypt(token))
+      user.update_attribute(:remember_token, Student.encrypt(token))
     end
 
     def sign_out
@@ -17,8 +17,8 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-      remember_token = User.encrypt(cookies[:remember_token])
-      @current_user ||= User.find_by_remember_token(remember_token)
+      remember_token = Student.encrypt(cookies[:remember_token])
+      @current_user ||= Student.find_by_remember_token(remember_token)
     end
 
     def current_user=(user)

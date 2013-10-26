@@ -6,7 +6,7 @@ class Student < ActiveRecord::Base
   has_secure_password
 
   def Student.encrypt(token)
-    Digest::SHA.hex_digest(token.to_s)
+    Digest::SHA1.hexdigest(token.to_s)
   end
 
   def Student.new_remember_token
