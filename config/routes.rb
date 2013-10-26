@@ -1,4 +1,13 @@
 Partnermine::Application.routes.draw do
+  get "sessions/new"
+
+  resources :students, :only => [:new, :create, :show]
+  get '/signup' => 'students#new'
+
+  resources :sessions, :only => [:new, :create, :destroy]
+  get '/signin' => 'sessions#new'
+  get '/signout' => 'sessions#destroy'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
