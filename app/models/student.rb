@@ -2,7 +2,7 @@ class Student < ActiveRecord::Base
   before_create :create_remember_token
 
   validates :name, :presence => true
-  validates :email, :presence => true, :uniqueness => { :case_sensitive => false }
+  validates :email, :uniqueness => { :case_sensitive => false }, :format => { :with => /[A-Za-z0-9]*@uwaterloo\.ca/ }
   has_secure_password
 
   def Student.encrypt(token)
@@ -16,6 +16,6 @@ class Student < ActiveRecord::Base
   private
 
     def create_remember_token
-      self.remember_token = User.encrypt(User.new_remember_token)
+      self.remember_token = Student.encrypt(Student.new_remember_token)
     end
 end

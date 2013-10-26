@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   def new
+    redirect_to student_url(current_student) if signed_in?
     @student = Student.new
   end
 
@@ -10,6 +11,12 @@ class StudentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    require_signed_in_student
+    @student = Student.find(params[:id])
+    redirect_to student_url(current_student) unless @student == current_student
   end
 
   private
