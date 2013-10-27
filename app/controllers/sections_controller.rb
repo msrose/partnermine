@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_filter :get_course
+  before_filter :require_signed_in_student, :get_course
 
   def new
     @section = @course.sections.new

@@ -1,4 +1,6 @@
 class CoursesController < ApplicationController
+  before_filter :require_signed_in_student
+
   def new
     @course = Course.new
   end
