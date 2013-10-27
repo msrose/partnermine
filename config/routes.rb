@@ -10,7 +10,10 @@ Partnermine::Application.routes.draw do
 
   resources :courses, :only => [:new, :create, :index, :show] do
     resources :sections, :only => [:new, :create, :show] do
-      get '/join' => 'sections#join', :on => :member
+      member do
+        get '/join' => 'sections#join'
+        get '/leave' => 'sections#leave'
+      end
     end
   end
 

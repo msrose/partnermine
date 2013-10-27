@@ -33,6 +33,12 @@ class SectionsController < ApplicationController
     redirect_to course_url(@course)
   end
 
+  def leave
+    @section = @course.sections.find(params[:id])
+    SectionStudent.find_by_student_id_and_section_id(current_student.id, @section.id).destroy
+    redirect_to course_url(@course)
+  end
+
   private
 
     def get_course
