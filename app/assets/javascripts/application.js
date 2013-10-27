@@ -18,6 +18,12 @@ $(document).ready(function(){
 	if( $('.signin').length ){
 		$(".signinlink").addClass("active");
 	}
+	if( $('.signup').length ){
+		$(".signinlink").addClass("active");
+	}
+	if( $('.courses').length ){
+		$(".courseslink").addClass("active");
+	}
 	$(".nav").children().click(function(){
 		$(".active").removeClass("active");
 		//$(this).button('reset')

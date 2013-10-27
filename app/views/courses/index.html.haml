@@ -1,5 +1,6 @@
-%h1 Courses
-%ul
-  - @courses.each do |course|
-    %li= link_to course.code, course_path(course)
-= link_to "Add a course", new_course_path
+.courses
+  %h1 Courses
+  %ul
+    - @courses.each do |course|
+      %li= link_to course.code, course_path(course)
+  = link_to "Add a course", new_course_path

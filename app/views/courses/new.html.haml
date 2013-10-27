@@ -1,9 +1,10 @@
-%h1 New Course
-- if @course.errors.any?
-  %ul
-  - @course.errors.full_messages.each do |msg|
-    %li= msg
-= form_for @course do |f|
-  = f.label :code
-  = f.text_field :code
-  = f.submit 'Create Couse'
+.courses
+	%h1 New Course
+	- if @course.errors.any?
+	  %ul
+	  - @course.errors.full_messages.each do |msg|
+	    %li= msg
+	= form_for @course do |f|
+	  = f.label :code
+	  = f.text_field :code
+	  = f.submit 'Create Couse'

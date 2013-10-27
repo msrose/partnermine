@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       self.current_student = student
       redirect_to student_url(student)
     else
-      flash[:error] = 'Invalid email/password combination.'
+      flash[:error] = 'Invalid Email/Password combination.'
       render :new
     end
   end

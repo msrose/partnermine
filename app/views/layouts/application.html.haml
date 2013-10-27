@@ -12,7 +12,7 @@
           %ul{:class=>"nav"}
             %li{:class=>"homelink"}
               %a= link_to 'Home', root_path
-            %li
+            %li{:class=>"courseslink"}
               %a= link_to 'Courses',courses_path
             %li{:class=>"signinlink"}
               - if signed_in?
