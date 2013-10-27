@@ -4,6 +4,7 @@ Partnermine::Application.routes.draw do
   resources :students, :only => [:new, :create, :show] do
     get '/make-request' => 'students#make_request', :on => :member, :as => "make_request"
   end
+  get '/accept-request' => 'students#accept_request', :as => "accept_request"
   get '/signup' => 'students#new'
 
   resources :sessions, :only => [:new, :create, :destroy]
