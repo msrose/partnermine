@@ -22,6 +22,7 @@ class SectionsController < ApplicationController
   def show
     @section = @course.sections.find(params[:id])
     redirect_to course_path(@course) unless @section.students.include?(current_student)
+    @students = @section.students
   end
 
   def join

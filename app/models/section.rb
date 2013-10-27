@@ -5,4 +5,5 @@ class Section < ActiveRecord::Base
 
   has_many :section_students
   has_many :students, :through => :section_students
+  has_many :partnerships
 end

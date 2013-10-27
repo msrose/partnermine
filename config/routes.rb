@@ -1,7 +1,9 @@
 Partnermine::Application.routes.draw do
   root :to => 'dashboard#home'
 
-  resources :students, :only => [:new, :create, :show]
+  resources :students, :only => [:new, :create, :show] do
+    get '/make-request' => 'students#make_request', :on => :member, :as => "make_request"
+  end
   get '/signup' => 'students#new'
 
   resources :sessions, :only => [:new, :create, :destroy]

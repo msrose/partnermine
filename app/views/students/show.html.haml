@@ -4,3 +4,18 @@
   %ul
   - @sections.each do |section|
     %li= (link_to section.course.code, course_path(section.course)) + ": Section " + (link_to section.number, course_section_path(section.course, section))
+  %h2 Requests Sent
+  %ul
+    - @requests_made.each do |request_made|
+      - section = Section.find(request_made.section_id)
+      %li
+        = Student.find(request_made.to_id).name
+        for section
+        = link_to section.number, course_section_path(section.course, section)
+        of
+        = link_to section.course.code, course_path(section.course)
+  %h2 Requests Received
+  %ul
+    - @requests_received.each do |request_received|
+      - section = Section.find(request_received.section_id)
+      %li= Student.find(request_received.to_id).name + " for " + " section " + section.number + " of " + section.course.code

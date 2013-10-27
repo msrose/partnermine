@@ -1,3 +1,8 @@
 .courses
-  %h1 Sections#show
-  %p Find me in app/views/sections/show.html.haml
+  %h1= "Students in #{@section.course.code} section #{@section.number}"
+  %ul
+    - @students.each do |student|
+      %li
+        = student.name
+        - if student != current_student
+          = link_to "Send Request", make_request_student_path(student, :section => @section.id)
