@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 %h1= @course.code
 %h2 Sections
 %ul
@@ -10,4 +11,22 @@
     %li
       = link_to section.number, course_section_path(@course, section)
       = link_to "Leave", leave_course_section_path(@course, section)
-= link_to "Add a section", new_course_section_path(@course)
+
+=======
+.courses
+  %h1= @course.code
+  %h2 Sections
+  %ul
+- @sections.each do |section|
+  - unless current_student.sections.include?(section)
+    %li
+      = section.number
+      = link_to "Join", join_course_section_path(@course, section)
+  - else
+    %li
+      = link_to section.number, course_section_path(@course, section)
+      = link_to "Leave", leave_course_section_path(@course, section)
+  %br
+  %br
+  %button{:class=>"addcourse btn btn-primary"}= link_to "Add a section", new_course_section_path(@course)
+>>>>>>> UI changes

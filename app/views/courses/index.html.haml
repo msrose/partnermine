@@ -1,6 +1,8 @@
 .courses
   %h1 Courses
+  %br
   %ul
     - @courses.each do |course|
-      %li= link_to course.code, course_path(course)
-  = link_to "Add a course", new_course_path
+      %li{:class=>"courselist btn btn-large"}= link_to course.code, course_path(course)
+  %br
+  %button{:class=>"addcourse btn btn-primary"}= link_to "Add a course", new_course_path

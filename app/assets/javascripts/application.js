@@ -18,8 +18,8 @@ $(document).ready(function(){
 	if( $('.signin').length ){
 		$(".signinlink").addClass("active");
 	}
-	if( $('.signup').length ){
-		$(".signinlink").addClass("active");
+	if( $('.students').length ){
+		$(".homelink").addClass("active");
 	}
 	if( $('.courses').length ){
 		$(".courseslink").addClass("active");

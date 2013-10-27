@@ -1,5 +1,8 @@
-%h1= "Create section in #{@course.code}"
-= form_for [@course, @section] do |f|
-  = f.label :number
-  = f.text_field :number
-  = f.submit 'Create Section'
+.courses
+  %h1= "Create section in #{@course.code}"
+  %br
+  = form_for [@course, @section] do |f|
+    = f.label :number, "Section Number"
+    = f.text_field :number
+    %br
+    = f.submit 'Create Section',:class=>"btn btn-primary"

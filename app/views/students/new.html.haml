@@ -1,18 +1,17 @@
-.students
-  %h1 Sign Up
+%h1 Sign Up
+%br
+- if @student.errors.any?
+  %ul{:class=>"error"}
+    - @student.errors.full_messages.each do |msg|
+      %li= msg
+= form_for @student do |f|
+  = f.label :name
+  = f.text_field :name
+  = f.label :email, "UW Email Address"
+  = f.text_field :email
+  = f.label :password
+  = f.password_field :password
+  = f.label :password_confirmation
+  = f.password_field :password_confirmation
   %br
-  - if @student.errors.any?
-    %ul{:class=>"error"}
-      - @student.errors.full_messages.each do |msg|
-        %li= msg
-  = form_for @student do |f|
-    = f.label :name
-    = f.text_field :name
-    = f.label :email, "UW Email Address"
-    = f.text_field :email
-    = f.label :password
-    = f.password_field :password
-    = f.label :password_confirmation
-    = f.password_field :password_confirmation
-    %br
-    = f.submit 'Sign Up',:class=>"btn btn-primary"
+  = f.submit 'Sign Up',:class=>"btn btn-primary"

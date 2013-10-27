@@ -1,5 +1,6 @@
-%h1= @student.name
-%h2 Courses
-%ul
-- @sections.each do |section|
-  %li= (link_to section.course.code, course_path(section.course)) + ": Section " + (link_to section.number, course_section_path(section.course, section))
+.students
+  %h1= @student.name
+  %h2 Courses
+  %ul
+  - @sections.each do |section|
+    %li= (link_to section.course.code, course_path(section.course)) + ": Section " + (link_to section.number, course_section_path(section.course, section))
