@@ -17,6 +17,7 @@ class StudentsController < ApplicationController
     require_signed_in_student
     @student = Student.find(params[:id])
     redirect_to student_url(current_student) unless @student == current_student
+    @sections = @student.sections
   end
 
   private
