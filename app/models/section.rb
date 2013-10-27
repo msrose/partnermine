@@ -1,6 +1,6 @@
 class Section < ActiveRecord::Base
   belongs_to :course
-  validates :number, :presence => true
+  validates :number, :presence => true, :uniqueness => true
   validates :course_id, :presence => true
 
   has_many :section_students
