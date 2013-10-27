@@ -19,12 +19,12 @@
       - student = Student.find(request_received.from_id)
       %li
         = student.name
-        for 
-        = (link_to section.number, course_section_path(section.course, section), :class=>"courselist btn")+" : "+ (link_to section.course.code, course_path(section.course), :class=>"courselist btn")
-        = link_to "Accept Request", accept_request_path(:request_received => request_received.id), :class=>"addcourse btn btn-success"
+        for
+        = (link_to section.number, course_section_path(section.course, section), :class=>"courselist btn") + " : " +(link_to section.course.code, course_path(section.course),:class=>"courselist btn")
+        = link_to "Accept Request", accept_request_path(:request_received => request_received.id), :class=>"secselect btn btn-success"
   %h2 Partnerships
   - @partnerships.each do |partnership|
     - id = partnership.from_id == current_student.id ? partnership.to_id : partnership.from_id
     = Student.find(id).name
-    for 
-    = (link_to partnership.section.course.code, course_path(partnership.section.course),:class=>"courselist btn")+" : "+(link_to partnership.section.number, course_section_path(partnership.section.course, partnership.section),:class=>"courselist btn")
+    for
+    = (link_to partnership.section.course.code, course_path(partnership.section.course),:class=>"courselist btn") + " : " + (link_to partnership.section.number, course_section_path(partnership.section.course, partnership.section),:class=>"courselist btn")
