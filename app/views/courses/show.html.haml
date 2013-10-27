@@ -4,12 +4,12 @@
   %ul
     - @sections.each do |section|
       - unless current_student.sections.include?(section)
-        %li{:class=>"courselist sectionlist btn "}= section.number
-        %button{:class=>"courselist sectionlist secselect btn btn-inverse"}= link_to "Join", join_course_section_path(@course, section)
+        %li{:class=>"courselist sectionlist btn disabled" }= section.number
+        = link_to "Join", join_course_section_path(@course, section), :class=>"courselist sectionlist secselect btn btn-inverse"
         %br
       - else
-        %li{:class=>"courselist sectionlist btn btn-success"}= link_to section.number, course_section_path(@course, section)
-        %button{:class=>"courselist sectionlist secselect btn btn-inverse"}= link_to "Leave", leave_course_section_path(@course, section)
+        %li= link_to section.number, course_section_path(@course, section),:class=>"courselist sectionlist btn btn-success"
+        = link_to "Leave", leave_course_section_path(@course, section),:class=>"courselist sectionlist secselect btn btn-inverse"
         %br
   %br
-  %button{:class=>"addcourse btn btn-primary"}= link_to "Add a section", new_course_section_path(@course)
+  = link_to "Add a section", new_course_section_path(@course),:class=>"addcourse btn btn-primary"

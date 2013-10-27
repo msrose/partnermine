@@ -1,8 +1,11 @@
-.courses
-  %h1= "Students in #{@section.course.code} section #{@section.number}"
-  %ul
+.courses1
+  %h1= "Students in #{@section.course.code} Section #{@section.number}"
+  %br
+  %table
     - @students.each do |student|
-      %li
-        = student.name
-        - if student != current_student
-          = link_to "Send Request", make_request_student_path(student, :section => @section.id)
+      %tr
+        %td{:class=>"stulist"}
+          = student.name
+        %td
+          - if student != current_student
+            = link_to "Send Request", make_request_student_path(student, :section => @section.id), :class=>"courselist sectionlist secselect btn btn-inverse btn-small"

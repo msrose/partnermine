@@ -3,6 +3,6 @@
   %br
   %ul
     - @courses.each do |course|
-      %li{:class=>"courselist btn btn-large"}= link_to course.code, course_path(course)
+      %li= link_to course.code, course_path(course), :class=>"courselist btn btn-large"
   %br
-  %button{:class=>"addcourse btn btn-primary"}= link_to "Add a course", new_course_path
+  = link_to "Add a course", new_course_path, :class=>"addcourse btn btn-primary"

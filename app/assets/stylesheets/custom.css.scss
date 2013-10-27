@@ -2,37 +2,57 @@
 .navbar .nav{
 	margin-top : -20px;
 	.signinlink{
-		padding-left : 650px;
+		padding-left : 525px;
 	}
 }	
 .error{
 	color : red;
 }
-.courselist a{
+.courselist{
 	text-decoration: none;
 	color : black;
 }
-.courselist a:hover{
+.courselist:hover{
 	text-decoration: none;
 	color : black;
 }
 
-.secselect a{
+.secselect {
 	color: white;
 }
 
-.secselect a:hover{
+.secselect:hover{
 	color: white;
 }
 
 .sectionlist {
 	margin-top: 10px;
 }
-.addcourse a{
+.addcourse {
 	text-decoration: none;
 	color : white;
 }
-.addcourse a:hover{
+.addcourse:hover{
 	text-decoration: none;
 	color : white;
+}
+.courses ul{
+	list-style: none;
+	li{
+		display: inline-block;
+	}
+}
+
+.homecourse{
+	list-style: none;
+}
+
+.stulist {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-top: 10px;
+  margin-right:50px;
+  font-size: 14px;
+  line-height: 20px;
+  vertical-align: middle;
 }

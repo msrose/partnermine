@@ -18,10 +18,13 @@ $(document).ready(function(){
 	if( $('.signin').length ){
 		$(".signinlink").addClass("active");
 	}
-	if( $('.students').length ){
+	if( $('.homecourse').length ){
 		$(".homelink").addClass("active");
 	}
 	if( $('.courses').length ){
+		$(".courseslink").addClass("active");
+	}
+	if( $('.courses1').length ){
 		$(".courseslink").addClass("active");
 	}
 	$(".nav").children().click(function(){

@@ -1,6 +1,10 @@
 .courses
   %h1= "Create section in #{@course.code}"
   %br
+  - if @section.errors.any?
+    %ul{:class=>"error"} 
+      - @section.errors.full_messages.each do |msg|
+        %li= msg
   = form_for [@course, @section] do |f|
     = f.label :number, "Section Number"
     = f.text_field :number
