@@ -20,6 +20,7 @@ class StudentsController < ApplicationController
     @sections = @student.sections
     @requests_made = Partnership.where(:from_id => current_student.id, :accepted => false)
     @requests_received = Partnership.where(:to_id => current_student.id, :accepted => false)
+    @partnerships = Partnership.where("to_id = :id OR from_id = :id", :id => current_student.id).where(:accepted => true)
   end
 
   def make_request
@@ -37,6 +38,12 @@ class StudentsController < ApplicationController
       flash[:error] = "Invalid request!"
       redirect_to :back
     end
+  end
+
+  def accept_request
+    @request_to_accept = Partnership.find(params[:request_received])
+    @request_to_accept.update_attribute(:accepted, true)
+    redirect_to root_url
   end
 
   private

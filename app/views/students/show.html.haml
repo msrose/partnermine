@@ -18,9 +18,19 @@
   %ul
     - @requests_received.each do |request_received|
       - section = Section.find(request_received.section_id)
+      - student = Student.find(request_received.from_id)
       %li
-        = Student.find(request_received.to_id).name
+        = student.name
         for section
         = link_to section.number, course_section_path(section.course, section)
         of
         = link_to section.course.code, course_path(section.course)
+        = link_to "Accept Request", accept_request_path(:request_received => request_received.id)
+  %h2 Partnerships
+  - @partnerships.each do |partnership|
+    - id = partnership.from_id == current_student.id ? partnership.to_id : partnership.from_id
+    = Student.find(id).name
+    for section
+    = link_to partnership.section.number, course_section_path(partnership.section.course, partnership.section)
+    if
+    = link_to partnership.section.course.code, course_path(partnership.section.course)
