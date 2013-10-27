@@ -2,5 +2,10 @@
 %h2 Sections
 %ul
 - @sections.each do |section|
-  %li= link_to section.number, course_section_path(@course, section)
+  - unless SectionStudent.find_by_section_id_and_student_id(section.id, current_student.id)
+    %li
+      = section.number
+      = link_to "Join", join_course_section_path(@course, section)
+  - else
+    %li= link_to section.number, course_section_path(@course, section)
 = link_to "Add a section", new_course_section_path(@course)

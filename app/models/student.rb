@@ -1,6 +1,10 @@
 class Student < ActiveRecord::Base
   before_create :create_remember_token
 
+  has_many :section_students
+  has_many :sections, :through => :section_students
+  has_many :courses, :through => :sections
+
   validates :name, :presence => true
   validates :email, :uniqueness => { :case_sensitive => false }, :format => { :with => /[A-Za-z0-9]*@uwaterloo\.ca/ }
   has_secure_password

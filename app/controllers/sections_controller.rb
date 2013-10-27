@@ -23,6 +23,16 @@ class SectionsController < ApplicationController
     @section = @course.sections.find(params[:id])
   end
 
+  def join
+    if current_student.courses.include?(@course)
+      flash[:error] = 'You have already joined a section for this course!'
+    else
+      @section = @course.sections.find(params[:id])
+      SectionStudent.create(:section_id => @section.id, :student_id => current_student.id)
+    end
+    redirect_to course_url(@course)
+  end
+
   private
 
     def get_course
