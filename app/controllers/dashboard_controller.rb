@@ -1,5 +1,9 @@
 class DashboardController < ApplicationController
   def home
-    redirect_to student_path(current_student)
+    if signed_in?
+      redirect_to student_path(current_student)
+    else
+      redirect_to signin_path
+    end
   end
 end
